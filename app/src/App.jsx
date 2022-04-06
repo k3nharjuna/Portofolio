@@ -1,18 +1,26 @@
-import { useState } from 'react'
-import logo from './logo.svg'
+import { useState, useEffect } from 'react'
+// Components
+import Hello from './components/Hello'
+import Skills from './components/Skills'
+import Experience from './components/Experience'
 
 function App() {
-  const [message, setMessage] = useState('Hy everyone! I\'m Ken Harjuna Arimurti, welcome!!')
-  
+  const [pages, setPages] = useState(0)
+  useEffect(() => {
+    setPages(1)
+  }, [])
+
   return (
-    <div className="font-montserrat font-bold text-gray-500 bg-zinc-800 min-h-screen">
-      <div className='container flex mx-auto justify-center items-center min-h-screen'>
-        <div className=''>
-        {
-          message
-        }
-        </div>
-      </div>
+    <div className="font-montserrat w-screen h-screen font-bold snap-x snap-mandatory overflow-x-hidden flex">
+     <section id="hello">
+      <Hello />
+     </section>
+     <section id="skills">
+      <Skills />
+     </section>
+     <section id="exp">
+      <Experience />
+     </section>
     </div>
   )
 }
